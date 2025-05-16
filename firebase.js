@@ -4,11 +4,11 @@
 // import { getFirestore } from "firebase/firestore";
 import firebase from "firebase/compat/app";
 import 'firebase/compat/auth'
-
+import API_KEYS from "./apiKeys";
 // Configuration Firebase
 const firebaseConfig = {
 
-    apiKey: "AIzaSyAGlIJKzKkbDAH7SygtlixwmFw85Dbx_y0",
+    apiKey: API_KEYS.FIREBASE_API_KEY,
     authDomain: "medbrodie.firebaseapp.com",
     projectId: "medbrodie",
     storageBucket: "medbrodie.firebasestorage.com",
