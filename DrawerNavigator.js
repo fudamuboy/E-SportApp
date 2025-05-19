@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from './screens/Home';
-import Evenement from './screens/Evenement';
 import Contacts from './screens/Contacts';
 import Tabs from './BOTTOMTABS/Tabs';
 import AntDesign from '@expo/vector-icons/AntDesign';

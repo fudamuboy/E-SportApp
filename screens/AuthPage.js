@@ -19,7 +19,7 @@ export default function AuthPage() {
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user) {
-                navigation.navigate('Home')
+                navigation.navigate('MainApp')
             }
         })
 

@@ -5,9 +5,11 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { auth } from '../firebase';
-import { Firestore } from 'firebase/firestore';
 import RNPickerSelect from 'react-native-picker-select'
 import Picker from 'react-native-picker-select';
+import { getFirestore, collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { firebaseApp } from '../firebase'; // si tu l’as exporté ainsi
+
 
 const izmirDistricts = [
     'Konak', 'Karşıyaka', 'Bornova', 'Buca', 'Çiğli', 'Balçova', 'Gaziemir',
@@ -37,14 +39,23 @@ export default function RegisterPage() {
         auth.createUserWithEmailAndPassword(email, password).then
             (userCredentials => {
                 const user = userCredentials.user
-                Firestore().collection('users').doc(user.uid).set({
+                // Firestore().collection('users').doc(user.uid).set({
+                //     firstName,
+                //     lastName,
+                //     email,
+                //     ville: 'Izmir',
+                //     district,
+                //     createdAt: Firestore.fieldValue.serverTimestamp()
+
+                // })
+                const db = getFirestore(firebaseApp)
+                setDoc(doc(collection(db, 'users'), user.uid), {
                     firstName,
                     lastName,
                     email,
                     ville: 'Izmir',
                     district,
-                    createdAt: Firestore.fieldValue.serverTimestamp()
-
+                    createdAt: serverTimestamp()
                 })
                 Alert.alert('Succes', 'Compte cree wit succes', [
                     { text: 'OK', onPress: () => navigation.navigate('AuthPage') }
