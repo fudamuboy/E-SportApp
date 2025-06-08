@@ -9,7 +9,7 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 const Tab = createBottomTabNavigator();
 export default function Tabs() {
     return (
-        <Tab.Navigator>
+        <Tab.Navigator >
             <Tab.Screen name="Home" component={Home}
                 options={{
                     headerShown: false,
